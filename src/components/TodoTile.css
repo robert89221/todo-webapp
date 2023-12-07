@@ -1,7 +1,9 @@
 
 .TodoTile
 {
-  border-radius: 0.5vw;
-  background: dimgray;
+  border-radius: 1vw;
   width: 50vw;
+  margin: 1vw;
+  padding: 1vw;
+  cursor: pointer;
 }

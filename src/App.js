@@ -6,10 +6,33 @@ import NewTodo from "./components/NewTodo.js";
 let TodoList =
 [
   { date: "2000-10-20",
-    category: "Important",
-    description: "Don't forget to do the important thing",
+    description: "Do this",
+    isDone: false },
+  { date: "2001-12-23",
+    description: "Do that",
     isDone: false },
 ];
+
+export { TodoList };
+
+function BuildList()
+{
+
+  function Item(props, index)
+  {
+    return (
+      <li key={index}>
+        <TodoTile {...props}/>
+      </li>
+    );
+  }
+
+  return (
+    <ul className="TodoList">
+      { TodoList.map( (item, index) => Item(item, index) ) }
+    </ul>
+  );
+}
 
 function App() {
   return (
@@ -18,7 +41,7 @@ function App() {
         <h1>ToDo App</h1>
       </header>
       <NewTodo/>
-      { TodoList.map(TodoTile) }
+      <BuildList/>
     </div>
   );
 }

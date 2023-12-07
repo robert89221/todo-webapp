@@ -2,4 +2,8 @@
 .NewTodo
 {
   color: aqua;
+  border-radius: 1vw;
+  border-style: solid;
+  border-width: 1px;
+  width: 50vw;
 }
