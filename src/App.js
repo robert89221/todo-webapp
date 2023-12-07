@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+
+import "./App.css";
+import TodoTile from "./components/TodoTile.js";
+import NewTodo from "./components/NewTodo.js";
+
+let TodoList =
+[
+  { date: "2000-10-20",
+    category: "Important",
+    description: "Don't forget to do the important thing",
+    isDone: false },
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>ToDo App</h1>
       </header>
+      <NewTodo/>
+      { TodoList.map(TodoTile) }
     </div>
   );
 }
