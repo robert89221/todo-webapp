@@ -2,8 +2,10 @@
 import "./TodoTile.css";
 // import { useState } from "react";
 
-export default function TodoTile({item, doneHandler, deleteHandler})
+// export default function TodoTile({item, doneHandler, deleteHandler})
+export default function TodoTile(props)
 {
+  const {item, doneHandler, deleteHandler} = props;
   const {description, date, isDone, id} = item;
   
   const color = isDone ? "green" : "grey";
@@ -11,7 +13,7 @@ export default function TodoTile({item, doneHandler, deleteHandler})
   return (
     <div className="TodoTile"
          style={{backgroundColor: color}}>
-      {id}: { description }<br/>
+      { description }<br/>
       <div>
         { date } { isDone ? " (Done)" : " (Not yet done)" }
       </div>
