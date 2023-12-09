@@ -1,22 +1,13 @@
 
 import "./NewTodo.css";
-import { TodoList } from "../App.js";
 
-export default function NewTodo()
+export default function NewTodo({addHandler})
 {
-
-  function AddNew()
-  {
-    const item = {date: "2030", description: "Do something", isDone: false};
-    TodoList.push(item);
-    console.log(TodoList);
-  }
-
   return (
 
     <div className="NewTodo">
       Create new ToDo item
-      <button onClick={AddNew}>Add</button>
+      <button onClick={addHandler}>Add ToDo</button>
     </div>
 
   );

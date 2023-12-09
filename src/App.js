@@ -1,47 +1,67 @@
 
 import "./App.css";
-import TodoTile from "./components/TodoTile.js";
+import TodoList from "./components/TodoList.js";
 import NewTodo from "./components/NewTodo.js";
+import { useState } from "react";
 
-let TodoList =
-[
-  { date: "2000-10-20",
-    description: "Do this",
-    isDone: false },
-  { date: "2001-12-23",
-    description: "Do that",
-    isDone: false },
-];
 
-export { TodoList };
-
-function BuildList()
+function App()
 {
+  const [nextId, setNextId] = useState(0);
 
-  function Item(props, index)
+  const [list, setList] = useState(Array(0));
+  // const list =
+  // [
+  //   { description: "Do this",
+  //     date: "2010-20-30",
+  //     isDone: false },
+  //   { description: "Do that",
+  //     date: "2012-13-14",
+  //     isDone: true },
+  // ];
+
+
+  function handleAdd(props)
   {
-    return (
-      <li key={index}>
-        <TodoTile {...props}/>
-      </li>
-    );
+    const item = { description: "Todo #"+nextId,
+                   date: "2001-02-03",
+                   isDone: false,
+                   id: nextId };
+    const newList = [...list];
+    newList.push(item);
+    setList(newList);
+    setNextId(nextId+1);
   }
 
-  return (
-    <ul className="TodoList">
-      { TodoList.map( (item, index) => Item(item, index) ) }
-    </ul>
-  );
-}
+  function handleDone(id)
+  {
+    const newList = [...list];
+    const i = newList.findIndex((x) => x.id==id);
+    newList[i].isDone = !newList[i].isDone;
+    setList(newList);
+  }
 
-function App() {
+
+  function handleDelete(id)
+  {
+    // const newList = [...list];
+    // const i = newList.findIndex((x) => x.id==id);
+    // newList.splice(i, 1);
+    const newList = list.filter((x) => x.id != id);
+    setList(newList);
+  }
+
+
+
   return (
     <div className="App">
       <header>
         <h1>ToDo App</h1>
       </header>
-      <NewTodo/>
-      <BuildList/>
+      <NewTodo addHandler={handleAdd} />
+      <TodoList list={list}
+                doneHandler={handleDone}
+                deleteHandler={handleDelete} />
     </div>
   );
 }

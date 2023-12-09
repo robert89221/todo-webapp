@@ -1,24 +1,22 @@
 
 import "./TodoTile.css";
-import { useState } from "react";
+// import { useState } from "react";
 
-export default function TodoTile(props)
+export default function TodoTile({item, doneHandler, deleteHandler})
 {
-  const [color, setColor] = useState("grey");
-
-  function changeColor()
-  {
-    setColor(color == "red" ? "green" : "red");
-  }
+  const {description, date, isDone, id} = item;
+  
+  const color = isDone ? "green" : "grey";
 
   return (
     <div className="TodoTile"
          style={{backgroundColor: color}}>
-      { props.description }<br/>
+      {id}: { description }<br/>
       <div>
-        { props.date } { props.isDone ? " (Done)" : " (Not yet done)" }
+        { date } { isDone ? " (Done)" : " (Not yet done)" }
       </div>
-      <button onClick={changeColor}>Toggle</button>
+      <button onClick={() => doneHandler(id)}>Done</button>
+      <button onClick={() => deleteHandler(id)}>Delete</button>
     </div>
   );
 }
