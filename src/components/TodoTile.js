@@ -2,20 +2,20 @@
 import "./TodoTile.css";
 // import { useState } from "react";
 
-// export default function TodoTile({item, doneHandler, deleteHandler})
 export default function TodoTile(props)
 {
   const {item, doneHandler, deleteHandler} = props;
   const {description, date, isDone, id} = item;
   
   const color = isDone ? "green" : "grey";
+  const status = isDone ? "(Done)" : "(Not yet done)";
 
   return (
     <div className="TodoTile"
          style={{backgroundColor: color}}>
-      { description }<br/>
+      { description }
       <div>
-        { date } { isDone ? " (Done)" : " (Not yet done)" }
+        { date } { status }
       </div>
       <button onClick={() => doneHandler(id)}>Done</button>
       <button onClick={() => deleteHandler(id)}>Delete</button>

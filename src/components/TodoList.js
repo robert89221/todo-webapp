@@ -7,6 +7,13 @@ export default function TodoList(props)
 {
   const {list, doneHandler, deleteHandler} = props;
 
+  const sortedList = [...list];
+  sortedList.sort((a, b) =>
+  {
+    if (a.isDone != b.isDone)  return a.isDone ? 1 : -1;
+    else                       return a.date < b.date ? -1 : 1;
+  });
+
   function buildItem(item)
   {
     return (
@@ -20,7 +27,7 @@ export default function TodoList(props)
 
   return (
     <ul className="TodoList">
-      {list.map(buildItem)}
+      {sortedList.map(buildItem)}
     </ul>
   );
 }
