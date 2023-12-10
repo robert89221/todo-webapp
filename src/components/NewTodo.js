@@ -17,9 +17,9 @@ export default function NewTodo(props)
       Create new ToDo item
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Description" value={descriptionState}
-                onChange={(x) => descriptionHandler(x.target.value)} required />
+               onChange={(x) => descriptionHandler(x.target.value)} required />
         <input type="date" value={dateState}
-                onChange={(x) => dateHandler(x.target.value)} />
+               onChange={(x) => dateHandler(x.target.value)} />
       </form>
       <button onClick={addHandler}>Add ToDo</button>
     </div>

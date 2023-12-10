@@ -10,9 +10,9 @@ function App()
   const [nextId, setNextId] = useState(0);
   const [list, setList] = useState([]);
   const [description, setDescription] = useState("");
-  const [date, setDate] = useState("2000-01-01");
+  const [date, setDate] = useState(new Date(Date.now()).toISOString().substring(0, 10));
 
-  function handleAdd(props)
+  function handleAdd()
   {
     const item = { description: description,
                    date: date,
