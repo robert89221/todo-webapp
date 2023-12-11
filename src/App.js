@@ -12,6 +12,20 @@ function App()
   const [description, setDescription] = useState("");
   const [date, setDate] = useState(new Date(Date.now()).toISOString().substring(0, 10));
 
+  
+  const [initOnce, setInitOnce] = useState(true)
+  if (initOnce)
+  {
+    setInitOnce(false);
+    const storedList = localStorage.getItem("list");
+    if (storedList)
+    {
+      setList(JSON.parse(storedList));
+      setNextId(Number.parseInt(localStorage.getItem("nextId")));
+    }
+  }
+
+
   function handleAdd()
   {
     const item = { description: description,
@@ -23,7 +37,10 @@ function App()
     setList(newList);
     setDescription("");
     setNextId(nextId+1);
+    localStorage.setItem("list", JSON.stringify(newList));
+    localStorage.setItem("nextId", nextId+1);
   }
+
 
   function handleDone(id)
   {
@@ -31,6 +48,7 @@ function App()
     const i = newList.findIndex((x) => x.id==id);
     newList[i].isDone = !newList[i].isDone;
     setList(newList);
+    localStorage.setItem("list", JSON.stringify(newList));
   }
 
 
@@ -38,8 +56,8 @@ function App()
   {
     const newList = list.filter((x) => x.id != id);
     setList(newList);
+    localStorage.setItem("list", JSON.stringify(newList));
   }
-
 
 
   return (
