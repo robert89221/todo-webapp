@@ -1,7 +1,7 @@
 
 .NewTodo
 {
-  display: flex;
+  /* display: flex; */
   color: aqua;
   border-radius: 1vw;
   border-style: solid;
@@ -11,19 +11,46 @@
   padding: 1vw;
 }
 
-.text-container
+
+
+/* .tile-text-container
 {
   flex: 10;
 }
 
-.button-container
+.tile-button-container
+{
+  flex: 1;
+  text-align: right;
+  margin: auto;
+} */
+
+
+
+.new-control-container
+{
+  display: flex;
+}
+
+.new-button-container
 {
   flex: 1;
   text-align: right;
   margin: auto;
 }
 
-.button-container a
+.new-form-container
 {
+  flex: 10;
+}
+
+.new-form-container input
+{
+  width: 50vw;
+}
+
+.new-button-container a
+{
+  font-size: large;
   cursor: pointer;
 }
