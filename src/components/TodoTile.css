@@ -1,9 +1,26 @@
 
 .TodoTile
 {
+  display: flex;
   border-radius: 1vw;
-  width: 50vw;
+  width: 60vw;
   margin: 1vw;
   padding: 1vw;
+}
+
+.text-container
+{
+  flex: 10;
+}
+
+.button-container
+{
+  flex: 1;
+  text-align: right;
+  margin: auto;
+}
+
+.button-container a
+{
   cursor: pointer;
 }

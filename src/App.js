@@ -63,7 +63,7 @@ function App()
   return (
     <div className="App">
       <header>
-        <h1>ToDo App</h1>
+        <h1>ToDo</h1>
       </header>
       <NewTodo descriptionState={description}
                descriptionHandler={setDescription}

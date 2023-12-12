@@ -14,14 +14,16 @@ export default function NewTodo(props)
   return (
 
     <div className="NewTodo">
-      Create new ToDo item
+      Create a new ToDo item<br/>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Description" value={descriptionState}
                onChange={(x) => descriptionHandler(x.target.value)} required />
         <input type="date" value={dateState}
                onChange={(x) => dateHandler(x.target.value)} />
       </form>
-      <button onClick={addHandler}>Add ToDo</button>
+      <div class="button-container">
+        <a onClick={addHandler}>&#xff0b;</a>
+      </div>
     </div>
 
   );

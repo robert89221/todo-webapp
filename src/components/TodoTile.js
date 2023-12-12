@@ -34,12 +34,15 @@ export default function TodoTile(props)
   return (
     <div className="TodoTile"
          style={{backgroundColor: color}}>
-      { description }
-      <div>
+      <div className="text-container">
+        { description }
+        <br/><br/>
         { when }
       </div>
-      <button onClick={() => doneHandler(id)}>Done</button>
-      <button onClick={() => deleteHandler(id)}>Delete</button>
+      <div className="button-container">
+        <a onClick={() => doneHandler(id)}>&#x2713;</a><br/>
+        <a onClick={() => deleteHandler(id)}>&#x1f7aa;</a>
+      </div>
     </div>
   );
 }
