@@ -1,9 +1,12 @@
 
 import "./NewTodo.css";
 
+
 export default function NewTodo(props)
 {
   const {descriptionState, descriptionHandler, dateState, dateHandler, addHandler} = props;
+
+  //  hjälpfunktion för att förhindra att sidan laddas om när du trycker enter
 
   function handleSubmit(x)
   {

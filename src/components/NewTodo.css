@@ -1,7 +1,6 @@
 
 .NewTodo
 {
-  /* display: flex; */
   color: aqua;
   border-radius: 1vw;
   border-style: solid;
@@ -10,22 +9,6 @@
   margin: 1vw;
   padding: 1vw;
 }
-
-
-
-/* .tile-text-container
-{
-  flex: 10;
-}
-
-.tile-button-container
-{
-  flex: 1;
-  text-align: right;
-  margin: auto;
-} */
-
-
 
 .new-control-container
 {
