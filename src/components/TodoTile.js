@@ -1,6 +1,6 @@
 
 import "./TodoTile.css";
-// import { useState } from "react";
+
 
 export default function TodoTile(props)
 {
@@ -34,12 +34,12 @@ export default function TodoTile(props)
   return (
     <div className="TodoTile"
          style={{backgroundColor: color}}>
-      <div className="text-container">
+      <div className="tile-text-container">
         { description }
         <br/><br/>
         { when }
       </div>
-      <div className="button-container">
+      <div className="tile-button-container">
         <a onClick={() => doneHandler(id)}>&#x2713;</a><br/>
         <a onClick={() => deleteHandler(id)}>&#x1f7aa;</a>
       </div>

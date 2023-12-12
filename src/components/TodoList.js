@@ -1,11 +1,13 @@
 
 import "./TodoList.css";
 import TodoTile from "./TodoTile.js";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 
 export default function TodoList(props)
 {
   const {list, doneHandler, deleteHandler} = props;
+  const [animParent] = useAutoAnimate();
 
   const sortedList = [...list];
   sortedList.sort((a, b) =>
@@ -26,7 +28,8 @@ export default function TodoList(props)
   }
 
   return (
-    <ul className="TodoList">
+    <ul className="TodoList"
+        ref={animParent}>
       {sortedList.map(buildItem)}
     </ul>
   );
